@@ -151,7 +151,11 @@ Dark palette (`:root` in `style.css`):
 
 ## Deployment
 
-Static files, no build. Hosted from the GitHub repo
-`randomcode0708/language-learner` (private), `main` branch, repo root, via
-GitHub Pages. Every push to `main` redeploys. `.nojekyll` at the root skips
-Jekyll processing.
+Static files, no build. Code lives in the GitHub repo
+`randomcode0708/language-learner` (private), `main` branch. `.nojekyll` at the
+root skips Jekyll processing if Pages is used.
+
+GitHub Pages is **not enabled**. The owner's GitHub plan doesn't allow Pages
+on private repos (the API returns 422). To host it, either make the repo
+public or upgrade the plan, then enable Pages to serve from `main` / root.
+After that, every push to `main` redeploys.
