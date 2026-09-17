@@ -24,13 +24,17 @@ script was removed — see Data model below).
 
 ```
 index.html   Page shell: font links, the SVG "kolam dot" motif def, mounts #app, loads data.js then app.js
+manifest.json  Web app manifest (name, colors, icons) so the site installs as a Mac app (Safari "Add to Dock")
+icon-192.png, icon-512.png, apple-touch-icon.png   App icons: marigold "த" + kolam dots on --bg
 style.css    All styling. CSS custom properties for the color/type tokens live at the top of the file.
 data.js      const TAMIL_DATA = {...}: all app content (see Data model)
 app.js       All app logic: rendering and the quiz engine. Vanilla DOM (no JSX/virtual DOM).
 ```
 
-There is no build step and no `package.json`. These 4 files are the entire
-deployable app.
+There is no build step and no `package.json`. The 4 code files plus the
+manifest and icons are the entire deployable app. There's no service worker
+(deliberately), so the installed app always loads the latest `data.js` and
+needs internet.
 
 ## Data model
 
