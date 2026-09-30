@@ -220,6 +220,14 @@ h2 { font-family: var(--font-en); }
   white-space: pre-wrap;
 }
 
+/* [[slots]]: parts of an example answer to replace with your own details */
+.slot {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
 /* word table */
 .word-table {
   border: 1px solid var(--border);

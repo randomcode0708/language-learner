@@ -86,6 +86,12 @@ function escapeHtml(str) {
   return d.innerHTML;
 }
 
+// Text with [[slots]]: bits of an example answer to swap for your own details.
+// Rendered underlined; the brackets themselves are never shown.
+function renderSlots(str) {
+  return escapeHtml(str || '').replace(/\[\[(.+?)\]\]/g, '<u class="slot">$1</u>');
+}
+
 // ---------- Words view ----------
 function renderWordsView() {
   const wrap = document.createElement('div');
@@ -129,8 +135,8 @@ function renderWordsView() {
     const row = document.createElement('div');
     row.className = 'word-row';
     row.innerHTML = `
-      <div class="cell-pron">${escapeHtml(w.pronunciation)}</div>
-      <div>${escapeHtml(w.english)}</div>
+      <div class="cell-pron">${renderSlots(w.pronunciation)}</div>
+      <div>${renderSlots(w.english)}</div>
       <div class="cell-notes">${escapeHtml(w.notes || '')}</div>
     `;
     table.appendChild(row);
@@ -285,9 +291,9 @@ function renderQuizCard() {
     <svg class="kolam-corner tl" viewBox="0 0 40 40"><use href="#kolam-dots"/></svg>
     <svg class="kolam-corner br" viewBox="0 0 40 40"><use href="#kolam-dots"/></svg>
     <div class="flashcard-chapter">${escapeHtml(current.word.chapterName)}</div>
-    <div class="flashcard-prompt">${escapeHtml(prompt)}</div>
+    <div class="flashcard-prompt">${renderSlots(prompt)}</div>
     <div class="flashcard-answer ${q.revealed ? 'shown' : ''}">
-      ${q.revealed ? escapeHtml(answer) : ''}
+      ${q.revealed ? renderSlots(answer) : ''}
       ${q.revealed && current.word.notes ? `<div class="flashcard-notes">${escapeHtml(current.word.notes)}</div>` : ''}
     </div>
   `;

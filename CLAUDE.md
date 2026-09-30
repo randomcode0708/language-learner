@@ -78,6 +78,12 @@ This is the part most worth understanding before making changes.
   points separated by blank lines (`\n\n`), and optional. The panel is
   hidden when it's empty.
 - `word.notes` is optional (`""` for none).
+- **`[[slots]]`**: in `pronunciation` and `english`, double brackets mark the
+  parts of an example answer the owner would swap for their own details
+  (e.g. `naa [[Toronto]]la irukke`). `renderSlots()` in `app.js` escapes the
+  text, then renders each slot as `<u class="slot">`, underlined in
+  `--accent`. Used in the word table and on quiz cards. The brackets are
+  never shown. Keep the author's example values; the underline is the hint.
 
 Word entries used to have a `tamil` field with native Tamil script. The owner
 switched to romanized `pronunciation` only. If native script comes back, add
@@ -91,7 +97,8 @@ defined and only used by the sidebar brand mark.
 2. **Chapter notes**: a panel at the top of the Words view shows
    `chapter.notes`, rendered with `white-space: pre-wrap`. It's not shown in
    the quiz.
-3. **Words**: a read-only table (pronunciation / English / notes) per chapter.
+3. **Words**: a read-only table (pronunciation / English / notes) per
+   chapter, with `[[slots]]` rendered underlined.
 4. **Quiz**
    - Setup screen: pick chapters (multi-select chips, or "All chapters"),
      pick direction (`ta-en` = Pronunciation→English, `en-ta` =
@@ -118,6 +125,12 @@ proposed entries, and wait for their changes before editing `data.js`.
   individual words. Write each as a short `Topic: text` paragraph.
 - **Keep every PDF entry**, even ones the PDF calls rarely used (e.g.
   "Good morning"). Put that caveat in the word's note.
+- **Example answers** (a fictional person's name, city, employer): keep the
+  author's values and wrap the swappable parts in `[[ ]]`. A PDF
+  fill-in-the-blanks practice page doesn't become its own entries; the
+  underlined slots cover it.
+- **Entry numbers continue across chapters** in the PDFs (Chapter 1 is
+  1–15, Chapter 2 is 16–37). They aren't stored; only the order matters.
 
 ## Design system (if touching UI)
 

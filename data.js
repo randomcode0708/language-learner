@@ -99,6 +99,145 @@ const TAMIL_DATA = {
           "notes": ""
         }
       ]
+    },
+    {
+      "id": "ch-self-intro",
+      "name": "Chapter 2: Self-Introduction",
+      "notes": "Underlined parts are the author's example details (Rachel, Canada, Toronto, Oxford, Dell). Swap them for your own when you practise.\n\nAnswering about work or study: don't give a bare answer. Say which city or country you work in, the company name and your designation, as in \"I work in New York in Dell company as a computer programmer\". If you leave those out, that's exactly what they'll ask next. Same for studies: give both the college name and the course name.",
+      "words": [
+        {
+          "id": "w-s01",
+          "pronunciation": "ungga peeru yenna?",
+          "english": "What is your name?",
+          "notes": ""
+        },
+        {
+          "id": "w-s02",
+          "pronunciation": "ye peeru [[rachel]]",
+          "english": "My name is [[Rachel]]",
+          "notes": ""
+        },
+        {
+          "id": "w-s03",
+          "pronunciation": "naa [[Canadian]]",
+          "english": "I am a [[Canadian]]",
+          "notes": ""
+        },
+        {
+          "id": "w-s04",
+          "pronunciation": "niingga piRandhu vaLandhadhu yengga?",
+          "english": "Where were you born and raised?",
+          "notes": ""
+        },
+        {
+          "id": "w-s05",
+          "pronunciation": "naa piRandhu vaLandhadhu [[Canada]]la",
+          "english": "I was born in and grew up in [[Canada]]",
+          "notes": ""
+        },
+        {
+          "id": "w-s06",
+          "pronunciation": "niingga yenggarundhu varRiingga?",
+          "english": "Where are you coming from?",
+          "notes": ""
+        },
+        {
+          "id": "w-s07",
+          "pronunciation": "naa [[Canada]]larundhu varRe",
+          "english": "I'm coming from [[Canada]]",
+          "notes": ""
+        },
+        {
+          "id": "w-s08",
+          "pronunciation": "[[Canada]]la yengga irukkiingga?",
+          "english": "Where are you living in [[Canada]]?",
+          "notes": ""
+        },
+        {
+          "id": "w-s09",
+          "pronunciation": "naa [[Toronto]]la irukke",
+          "english": "I am living in [[Toronto]]",
+          "notes": ""
+        },
+        {
+          "id": "w-s10",
+          "pronunciation": "niingga ippa yendha uurla irukkiingga? / niingga ippa yengga irukkiingga?",
+          "english": "In which city do you live now? / Where do you live now?",
+          "notes": "Two ways to ask the same thing."
+        },
+        {
+          "id": "w-s11",
+          "pronunciation": "naa ippa [[New york]]la irukke",
+          "english": "I live in [[New York]] now",
+          "notes": ""
+        },
+        {
+          "id": "w-s12",
+          "pronunciation": "yenna padikkuRiingga?",
+          "english": "What are you studying?",
+          "notes": ""
+        },
+        {
+          "id": "w-s13",
+          "pronunciation": "naa [[Economics]] padikkuRe",
+          "english": "I am studying [[Economics]]",
+          "notes": ""
+        },
+        {
+          "id": "w-s14",
+          "pronunciation": "yengga padikkuRiingga?",
+          "english": "Where are you studying?",
+          "notes": ""
+        },
+        {
+          "id": "w-s15",
+          "pronunciation": "naa [[Oxford university]]la padikkuRe",
+          "english": "I am studying in [[Oxford university]]",
+          "notes": ""
+        },
+        {
+          "id": "w-s16",
+          "pronunciation": "yenna / yengga veela seiRiingga / paakkuRiingga?",
+          "english": "What / where do you work?",
+          "notes": ""
+        },
+        {
+          "id": "w-s17",
+          "pronunciation": "naa [[New york]]la [[Dell company]]la [[computer programmer]]aa veela seiRe / paakkuRe",
+          "english": "I work in [[New York]] in [[Dell company]] as a [[computer programmer]]",
+          "notes": "Give city, company and designation together; see the chapter notes."
+        },
+        {
+          "id": "w-s18",
+          "pronunciation": "yengga padichchiingga?",
+          "english": "Where did you study?",
+          "notes": ""
+        },
+        {
+          "id": "w-s19",
+          "pronunciation": "naa [[Canada]]la padichche",
+          "english": "I studied in [[Canada]]",
+          "notes": ""
+        },
+        {
+          "id": "w-s20",
+          "pronunciation": "yenna padichchirukkiingga?",
+          "english": "What have you studied?",
+          "notes": ""
+        },
+        {
+          "id": "w-s21",
+          "pronunciation": "naa [[University of Toronto]]la undergrad padichche, [[Oxford]]la masters padichche",
+          "english": "I did my undergrad at the [[University of Toronto]] and my masters at [[Oxford]]",
+          "notes": ""
+        },
+        {
+          "id": "w-s22",
+          "pronunciation": "naa [[University of Toronto]]la [[Computer science Engineering]] padichchirukke",
+          "english": "I have studied [[Computer science engineering]] in [[university of Toronto]]",
+          "notes": ""
+        }
+      ]
     }
   ]
 };
