@@ -161,78 +161,90 @@ const TAMIL_DATA = {
         },
         {
           "id": "w-s10",
-          "pronunciation": "niingga ippa yendha uurla irukkiingga? / niingga ippa yengga irukkiingga?",
-          "english": "In which city do you live now? / Where do you live now?",
-          "notes": "Two ways to ask the same thing."
+          "pronunciation": "niingga ippa yendha uurla irukkiingga?",
+          "english": "In which city do you live now?",
+          "notes": ""
         },
         {
           "id": "w-s11",
+          "pronunciation": "niingga ippa yengga irukkiingga?",
+          "english": "Where do you live now?",
+          "notes": ""
+        },
+        {
+          "id": "w-s12",
           "pronunciation": "naa ippa [[New york]]la irukke",
           "english": "I live in [[New York]] now",
           "notes": ""
         },
         {
-          "id": "w-s12",
+          "id": "w-s13",
           "pronunciation": "yenna padikkuRiingga?",
           "english": "What are you studying?",
           "notes": ""
         },
         {
-          "id": "w-s13",
+          "id": "w-s14",
           "pronunciation": "naa [[Economics]] padikkuRe",
           "english": "I am studying [[Economics]]",
           "notes": ""
         },
         {
-          "id": "w-s14",
+          "id": "w-s15",
           "pronunciation": "yengga padikkuRiingga?",
           "english": "Where are you studying?",
           "notes": ""
         },
         {
-          "id": "w-s15",
+          "id": "w-s16",
           "pronunciation": "naa [[Oxford university]]la padikkuRe",
           "english": "I am studying in [[Oxford university]]",
           "notes": ""
         },
         {
-          "id": "w-s16",
-          "pronunciation": "yenna / yengga veela seiRiingga / paakkuRiingga?",
-          "english": "What / where do you work?",
-          "notes": ""
-        },
-        {
           "id": "w-s17",
-          "pronunciation": "naa [[New york]]la [[Dell company]]la [[computer programmer]]aa veela seiRe / paakkuRe",
-          "english": "I work in [[New York]] in [[Dell company]] as a [[computer programmer]]",
-          "notes": "Give city, company and designation together; see the chapter notes."
+          "pronunciation": "yenna veela seiRiingga?",
+          "english": "What work do you do?",
+          "notes": "veela seiRiingga? and veela paakkuRiingga? are interchangeable."
         },
         {
           "id": "w-s18",
+          "pronunciation": "yengga veela seiRiingga?",
+          "english": "Where do you work?",
+          "notes": "veela seiRiingga? and veela paakkuRiingga? are interchangeable."
+        },
+        {
+          "id": "w-s19",
+          "pronunciation": "naa [[New york]]la [[Dell company]]la [[computer programmer]]aa veela seiRe",
+          "english": "I work in [[New York]] in [[Dell company]] as a [[computer programmer]]",
+          "notes": "veela seiRe and veela paakkuRe are interchangeable. Give city, company and designation together; see the chapter notes."
+        },
+        {
+          "id": "w-s20",
           "pronunciation": "yengga padichchiingga?",
           "english": "Where did you study?",
           "notes": ""
         },
         {
-          "id": "w-s19",
+          "id": "w-s21",
           "pronunciation": "naa [[Canada]]la padichche",
           "english": "I studied in [[Canada]]",
           "notes": ""
         },
         {
-          "id": "w-s20",
+          "id": "w-s22",
           "pronunciation": "yenna padichchirukkiingga?",
           "english": "What have you studied?",
           "notes": ""
         },
         {
-          "id": "w-s21",
+          "id": "w-s23",
           "pronunciation": "naa [[University of Toronto]]la undergrad padichche, [[Oxford]]la masters padichche",
           "english": "I did my undergrad at the [[University of Toronto]] and my masters at [[Oxford]]",
           "notes": ""
         },
         {
-          "id": "w-s22",
+          "id": "w-s24",
           "pronunciation": "naa [[University of Toronto]]la [[Computer science Engineering]] padichchirukke",
           "english": "I have studied [[Computer science engineering]] in [[university of Toronto]]",
           "notes": ""

@@ -131,6 +131,11 @@ proposed entries, and wait for their changes before editing `data.js`.
   underlined slots cover it.
 - **Entry numbers continue across chapters** in the PDFs (Chapter 1 is
   1–15, Chapter 2 is 16–37). They aren't stored; only the order matters.
+- **Slashed alternatives**: when a PDF entry packs two meanings into one line
+  with a `/` (e.g. "What / where do you work?"), split it into separate
+  entries so each card has one answer. Keep interchangeable wordings that
+  mean the same thing (`veela seiRe` / `veela paakkuRe`) as a single entry
+  with a note. Word IDs are renumbered sequentially after a split.
 
 ## Design system (if touching UI)
 
