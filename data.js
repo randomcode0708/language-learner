@@ -35,7 +35,7 @@ const TAMIL_DATA = {
         {
           "id": "w-g05",
           "pronunciation": "paappo",
-          "english": "Let's see each other later",
+          "english": "Bye",
           "notes": "Goodbye on a video call or in person."
         },
         {
@@ -59,7 +59,7 @@ const TAMIL_DATA = {
         {
           "id": "w-g09",
           "pronunciation": "paravaayilla",
-          "english": "You are welcome",
+          "english": "Its Okay",
           "notes": ""
         },
         {
@@ -113,7 +113,7 @@ const TAMIL_DATA = {
         },
         {
           "id": "w-s02",
-          "pronunciation": "ye peeru [[rachel]]",
+          "pronunciation": "Naa peeru [[rachel]]",
           "english": "My name is [[Rachel]]",
           "notes": ""
         },
