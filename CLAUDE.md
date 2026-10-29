@@ -172,6 +172,12 @@ Dark palette (`:root` in `style.css`):
   buttons; worth a pass if this grows.
 - `data.js` is loaded as a plain script, so a syntax error there blanks the
   whole app. Run `node --check data.js` after editing it.
+- **Bump `?v=` when deploying.** GitHub Pages serves everything with
+  `cache-control: max-age=600`, so for up to 10 minutes a browser can pair
+  new `index.html` with a cached `app.js` or `style.css` — seen in practice
+  as new markup with old CSS. `index.html` loads `style.css`, `data.js` and
+  `app.js` with a `?v=N` query; increment N (all of them together) in any
+  commit that changes those files, so a refresh can never mix versions.
 
 ## Possible next steps (not yet requested, just ideas)
 
