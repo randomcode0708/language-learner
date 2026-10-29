@@ -237,7 +237,19 @@ h2 { font-family: var(--font-en); }
   margin-bottom: 12px;
 }
 .column-toggles .setup-label { margin-bottom: 0; }
-.chip:disabled { cursor: default; opacity: 0.75; }
+
+/* A blurred cell keeps its space; hover or click it to peek at that one. */
+.blurred {
+  filter: blur(5px);
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.12s ease-out;
+}
+.blurred:hover,
+.blurred.revealed {
+  filter: none;
+  user-select: auto;
+}
 
 /* word table */
 .word-table {
@@ -247,7 +259,7 @@ h2 { font-family: var(--font-en); }
 }
 .word-row {
   display: grid;
-  grid-template-columns: var(--cols, 1fr 1fr 1.4fr);
+  grid-template-columns: 1fr 1fr 1.4fr;
   gap: 8px;
   padding: 12px 14px;
   border-bottom: 1px solid var(--border);

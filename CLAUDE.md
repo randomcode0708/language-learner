@@ -100,12 +100,14 @@ defined and only used by the sidebar brand mark.
 3. **Words**: a read-only table (pronunciation / English / notes) per
    chapter, with `[[slots]]` rendered underlined.
 4. **Column toggles**: a "Show" chip row above the word table
-   (`renderColumnToggles`) hides any column, for self-testing against the
-   ones left showing. `state.columns` holds the flags and `COLUMNS` the
-   labels and track widths; the table sets `--cols` from the visible ones so
-   the 760px media query can still collapse rows to one column. The last
-   visible column's chip is disabled so the table can't be blanked. Like
-   quiz scores, this is session-only and resets on reload.
+   (`renderColumnToggles`) blurs any column, for self-testing against the
+   ones left showing. The column keeps its place in the layout — only the
+   text is blurred (`.blurred` in `style.css`), so nothing shifts. Hovering
+   a blurred cell reveals it, and clicking or tapping one toggles
+   `.revealed` on that cell alone (delegated from the table's `onclick`).
+   All three may be blurred at once. `state.columns` holds the flags,
+   `COLUMNS` the keys and labels. Like quiz scores, this is session-only and
+   resets on reload.
 5. **Quiz**
    - Setup screen: pick chapters (multi-select chips, or "All chapters"),
      pick direction (`ta-en` = Pronunciation→English, `en-ta` =

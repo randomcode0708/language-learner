@@ -3,15 +3,15 @@ const state = {
   data: TAMIL_DATA,     // read-only: content changes by editing data.js and pushing
   view: 'words',       // 'words' | 'quiz'
   currentChapterId: null,
-  // Words-view column toggles — hide a column to self-test against the others.
+  // Words-view column toggles — blur a column to self-test against the others.
   columns: { pronunciation: true, english: true, notes: true },
   quiz: null            // active quiz session object
 };
 
 const COLUMNS = [
-  ['pronunciation', 'Pronunciation', '1fr'],
-  ['english', 'English', '1fr'],
-  ['notes', 'Notes', '1.4fr']
+  ['pronunciation', 'Pronunciation'],
+  ['english', 'English'],
+  ['notes', 'Notes']
 ];
 
 if (state.data.chapters.length) {
@@ -134,36 +134,41 @@ function renderWordsView() {
 
   wrap.appendChild(renderColumnToggles());
 
-  const shown = COLUMNS.filter(([key]) => state.columns[key]);
-
   const table = document.createElement('div');
   table.className = 'word-table';
-  // Rows read their track sizes from --cols so the mobile media query can still override.
-  table.style.setProperty('--cols', shown.map(([, , width]) => width).join(' '));
 
   const thead = document.createElement('div');
   thead.className = 'word-row word-row-head';
-  thead.innerHTML = shown.map(([, label]) => `<div>${label}</div>`).join('');
+  thead.innerHTML = COLUMNS.map(([, label]) => `<div>${label}</div>`).join('');
   table.appendChild(thead);
 
+  // Hidden columns keep their place in the layout; only the text is blurred.
+  const blurClass = key => (state.columns[key] ? '' : ' blurred');
   const cell = {
-    pronunciation: w => `<div class="cell-pron">${renderSlots(w.pronunciation)}</div>`,
-    english: w => `<div>${renderSlots(w.english)}</div>`,
-    notes: w => `<div class="cell-notes">${escapeHtml(w.notes || '')}</div>`
+    pronunciation: w => `<div class="cell-pron${blurClass('pronunciation')}">${renderSlots(w.pronunciation)}</div>`,
+    english: w => `<div class="${('cell-en' + blurClass('english'))}">${renderSlots(w.english)}</div>`,
+    notes: w => `<div class="cell-notes${blurClass('notes')}">${escapeHtml(w.notes || '')}</div>`
   };
 
   chapter.words.forEach(w => {
     const row = document.createElement('div');
     row.className = 'word-row';
-    row.innerHTML = shown.map(([key]) => cell[key](w)).join('');
+    row.innerHTML = COLUMNS.map(([key]) => cell[key](w)).join('');
     table.appendChild(row);
   });
+
+  // Click or tap a blurred cell to peek at just that one.
+  table.onclick = (e) => {
+    const c = e.target.closest('.blurred');
+    if (c) c.classList.toggle('revealed');
+  };
   wrap.appendChild(table);
 
   return wrap;
 }
 
-// Column toggles: hide a column to quiz yourself against the ones left showing.
+// Column toggles: blur a column to quiz yourself against the ones left showing.
+// The column keeps its place; hover or click a blurred cell to peek.
 // Session-only, like quiz scores — nothing is saved.
 function renderColumnToggles() {
   const wrap = document.createElement('div');
@@ -178,9 +183,6 @@ function renderColumnToggles() {
     chip.className = 'chip' + (on ? ' active' : '');
     chip.textContent = label;
     chip.setAttribute('aria-pressed', String(on));
-    // Keep at least one column visible, otherwise the table says nothing.
-    const isLastShown = on && COLUMNS.filter(([k]) => state.columns[k]).length === 1;
-    chip.disabled = isLastShown;
     chip.onclick = () => { state.columns[key] = !state.columns[key]; render(); };
     group.appendChild(chip);
   });
