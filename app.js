@@ -3,8 +3,16 @@ const state = {
   data: TAMIL_DATA,     // read-only: content changes by editing data.js and pushing
   view: 'words',       // 'words' | 'quiz'
   currentChapterId: null,
+  // Words-view column toggles — hide a column to self-test against the others.
+  columns: { pronunciation: true, english: true, notes: true },
   quiz: null            // active quiz session object
 };
+
+const COLUMNS = [
+  ['pronunciation', 'Pronunciation', '1fr'],
+  ['english', 'English', '1fr'],
+  ['notes', 'Notes', '1.4fr']
+];
 
 if (state.data.chapters.length) {
   state.currentChapterId = state.data.chapters[0].id;
@@ -124,24 +132,59 @@ function renderWordsView() {
     return wrap;
   }
 
+  wrap.appendChild(renderColumnToggles());
+
+  const shown = COLUMNS.filter(([key]) => state.columns[key]);
+
   const table = document.createElement('div');
   table.className = 'word-table';
+  // Rows read their track sizes from --cols so the mobile media query can still override.
+  table.style.setProperty('--cols', shown.map(([, , width]) => width).join(' '));
+
   const thead = document.createElement('div');
   thead.className = 'word-row word-row-head';
-  thead.innerHTML = `<div>Pronunciation</div><div>English</div><div>Notes</div>`;
+  thead.innerHTML = shown.map(([, label]) => `<div>${label}</div>`).join('');
   table.appendChild(thead);
+
+  const cell = {
+    pronunciation: w => `<div class="cell-pron">${renderSlots(w.pronunciation)}</div>`,
+    english: w => `<div>${renderSlots(w.english)}</div>`,
+    notes: w => `<div class="cell-notes">${escapeHtml(w.notes || '')}</div>`
+  };
 
   chapter.words.forEach(w => {
     const row = document.createElement('div');
     row.className = 'word-row';
-    row.innerHTML = `
-      <div class="cell-pron">${renderSlots(w.pronunciation)}</div>
-      <div>${renderSlots(w.english)}</div>
-      <div class="cell-notes">${escapeHtml(w.notes || '')}</div>
-    `;
+    row.innerHTML = shown.map(([key]) => cell[key](w)).join('');
     table.appendChild(row);
   });
   wrap.appendChild(table);
+
+  return wrap;
+}
+
+// Column toggles: hide a column to quiz yourself against the ones left showing.
+// Session-only, like quiz scores — nothing is saved.
+function renderColumnToggles() {
+  const wrap = document.createElement('div');
+  wrap.className = 'column-toggles';
+  wrap.innerHTML = `<span class="setup-label">Show</span>`;
+
+  const group = document.createElement('div');
+  group.className = 'chip-group';
+  COLUMNS.forEach(([key, label]) => {
+    const chip = document.createElement('button');
+    const on = state.columns[key];
+    chip.className = 'chip' + (on ? ' active' : '');
+    chip.textContent = label;
+    chip.setAttribute('aria-pressed', String(on));
+    // Keep at least one column visible, otherwise the table says nothing.
+    const isLastShown = on && COLUMNS.filter(([k]) => state.columns[k]).length === 1;
+    chip.disabled = isLastShown;
+    chip.onclick = () => { state.columns[key] = !state.columns[key]; render(); };
+    group.appendChild(chip);
+  });
+  wrap.appendChild(group);
 
   return wrap;
 }

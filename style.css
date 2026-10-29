@@ -228,6 +228,17 @@ h2 { font-family: var(--font-en); }
   text-underline-offset: 3px;
 }
 
+/* column toggles (Words view) */
+.column-toggles {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.column-toggles .setup-label { margin-bottom: 0; }
+.chip:disabled { cursor: default; opacity: 0.75; }
+
 /* word table */
 .word-table {
   border: 1px solid var(--border);
@@ -236,7 +247,7 @@ h2 { font-family: var(--font-en); }
 }
 .word-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.4fr;
+  grid-template-columns: var(--cols, 1fr 1fr 1.4fr);
   gap: 8px;
   padding: 12px 14px;
   border-bottom: 1px solid var(--border);
